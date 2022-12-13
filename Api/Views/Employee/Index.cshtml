@@ -1,0 +1,97 @@
+﻿@model Application.DTOs.EmployeesDto
+
+@{
+    ViewData["Title"] = "Employees";
+}
+
+<div id="PlaceHolderHere"></div>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">Employees</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-action="CreateView" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Add
+            </a>
+        </div>
+    </div>
+    <br /><br />
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayName("Name")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Department name")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Position")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Salary")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Education")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Phone number")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Birthday")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Address")
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model.Employees)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => employee.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => employee.DepartmentName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => employee.PositionName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => employee.Salary)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => employee.Education)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => employee.PhoneNumber)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => employee.Birthday)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => employee.Address)
+                        </td>
+                        <td>
+                            <div class="w-75 btn-group" role="group">
+                                <form>
+                                    <a class="btn btn-warning mx-2"
+                                        asp-action="UpdateView" asp-route-id=@employee.Id><i class="bi bi-pencil-square"></i>Modify</a>
+                                </form>
+
+                                <form>
+                                    <a class="btn btn-danger mx-2"
+                                        asp-action="DeleteView" asp-route-id=@employee.Id><i class="bi bi-trash-fill"></i>Delete</a>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
