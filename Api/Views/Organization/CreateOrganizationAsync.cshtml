@@ -1,0 +1,59 @@
+﻿@model Application.Models.Organization.OrganizationForCreationModel
+
+@{
+    ViewData["Title"] = "New organization";
+}
+
+<form method="post" asp-action="CreateOrganizationAsync">
+    <div class="border-light window p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Add organization</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Name<span style="color: red">*</span></label>
+            <input asp-for="Name" class="form-control" autocomplete="off" />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Director name<span style="color: red">*</span></label>
+            <input asp-for="DirectorName" class="form-control" autocomplete="off" />
+            <span asp-validation-for="DirectorName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Email<span style="color: red">*</span></label>
+            <input asp-for="Email" class="form-control" autocomplete="off" />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Phone number<span style="color: red">*</span></label>
+            <input asp-for="PhoneNumber" class="form-control" autocomplete="off" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">City<span style="color: red">*</span></label>
+            <input asp-for="City" class="form-control" autocomplete="off" />
+            <span asp-validation-for="City" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Street<span style="color: red">*</span></label>
+            <input asp-for="Street" class="form-control" autocomplete="off" />
+            <span asp-validation-for="Street" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Building number<span style="color: red">*</span></label>
+            <input asp-for="HouseNumber" class="form-control" autocomplete="off" />
+            <span asp-validation-for="HouseNumber" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Building code</label>
+            <input asp-for="HouseCode" class="form-control" autocomplete="off" />
+            <span asp-validation-for="HouseCode" class="text-danger"></span>
+        </div>
+        
+        <div class="mt-4">
+            <button type="submit" class="btn btn-success btn-lg">Add</button>
+            <a asp-action="Index" class="btn btn-danger btn-lg mx-2">Cancel</a>
+        </div>
+    </div>
+</form>

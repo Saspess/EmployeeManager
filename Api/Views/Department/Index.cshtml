@@ -1,0 +1,90 @@
+﻿@model Application.DTOs.DepartmentsDto
+
+@{
+    ViewData["Title"] = "Departments";
+}
+
+<div id="PlaceHolderHere"></div>
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-5">
+            <h2 class="text-primary">Departments</h2>
+        </div>
+        <div class="col-5">
+            <form form method="get" asp-action="FindView" class="d-flex" role="search">
+                <input asp-for="Name" class="form-control" type="search" placeholder="Department name" aria-label="Search">
+                <span asp-validation-for="Name" class="text-danger"></span>
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+        <div class="col-2 text-end">
+            <a asp-action="CreateView" class="btn btn-primary">
+                <i class="bi bi-plus-circle"></i> Add
+            </a>
+        </div>
+    </div>
+    <br /><br />
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayName("Name")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Organization name")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Director name")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Address")
+                    </th>
+                    <th>
+                        @Html.DisplayName("Phone number")
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var department in Model.Departments)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => department.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => department.OrganizationName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => department.DirectorName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => department.Address)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => department.PhoneNumber)
+                        </td>
+                        <td>
+                            <div class="w-75 btn-group" role="group">
+                                <form>
+                                    <a class="btn btn-warning mx-2"
+                                        asp-action="UpdateView" asp-route-id=@department.Id><i class="bi bi-pencil-square"></i>Modify</a>
+                                </form>
+
+                                <form>
+                                    <a class="btn btn-danger mx-2"
+                                        asp-action="DeleteView" asp-route-id=@department.Id><i class="bi bi-trash-fill"></i>Delete</a>
+                                </form>
+                                <form>
+                                    <a class="btn btn-warning mx-2"
+                                        asp-controller="Employee" asp-action="GetByDepartmentId" asp-route-id=@department.Id>Employees</a>
+                                </form>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+﻿@model Application.Models.Employee.EmployeeForUpdateModel
+
+@{
+    ViewData["Title"] = "Modify employee";
+}
+
+<form method="post" asp-action="UpdateEmployeeAsync">
+    <div class="border-light window p-3 mt-4">
+        <div class="row pb-2">
+            <h2 class="text-primary">Modify employee</h2>
+            <hr />
+        </div>
+        <div class="mb-3">
+            <label class="form-label">First name<span style="color: red">*</span></label>
+            <input asp-for="FirstName" class="form-control" autocomplete="off" />
+            <span asp-validation-for="FirstName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Last name<span style="color: red">*</span></label>
+            <input asp-for="LastName" class="form-control" autocomplete="off" />
+            <span asp-validation-for="LastName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Department name<span style="color: red">*</span></label>
+            <input asp-for="DepartmentName" class="form-control" autocomplete="off" />
+            <span asp-validation-for="DepartmentName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Birthday<span style="color: red">*</span></label>
+            <input asp-for="Birthday" class="form-control" autocomplete="off" />
+            <span asp-validation-for="Birthday" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Phone number<span style="color: red">*</span></label>
+            <input asp-for="PhoneNumber" class="form-control" autocomplete="off" />
+            <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+        </div>
+        <h3 class="text-primary">Position</h3>
+        <div class="mb-3">
+            <label class="form-label">Position<span style="color: red">*</span></label>
+            <input asp-for="PositionName" class="form-control" autocomplete="off" />
+            <span asp-validation-for="PositionName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Salary<span style="color: red">*</span></label>
+            <input asp-for="Salary" class="form-control" autocomplete="off" />
+            <span asp-validation-for="Salary" class="text-danger"></span>
+        </div>
+        <h3 class="text-primary">Education</h3>
+        <div class="mb-3">
+            <label class="form-label">Institution name<span style="color: red">*</span></label>
+            <input asp-for="InstitutionName" class="form-control" autocomplete="off" />
+            <span asp-validation-for="InstitutionName" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Start year<span style="color: red">*</span></label>
+            <input asp-for="StartYear" class="form-control" autocomplete="off" />
+            <span asp-validation-for="StartYear" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">End year<span style="color: red">*</span></label>
+            <input asp-for="EndYear" class="form-control" autocomplete="off" />
+            <span asp-validation-for="EndYear" class="text-danger"></span>
+        </div>
+        <h3 class="text-primary">Address</h3>
+        <div class="mb-3">
+            <label class="form-label">City<span style="color: red">*</span></label>
+            <input asp-for="City" class="form-control" autocomplete="off" />
+            <span asp-validation-for="City" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Street<span style="color: red">*</span></label>
+            <input asp-for="Street" class="form-control" autocomplete="off" />
+            <span asp-validation-for="Street" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Building number<span style="color: red">*</span></label>
+            <input asp-for="HouseNumber" class="form-control" autocomplete="off" />
+            <span asp-validation-for="HouseNumber" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Flat number</label>
+            <input asp-for="FlatNumber" class="form-control" autocomplete="off" />
+            <span asp-validation-for="FlatNumber" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Building code</label>
+            <input asp-for="HouseCode" class="form-control" autocomplete="off" />
+            <span asp-validation-for="HouseCode" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <input asp-for="Id" type="hidden" class="form-control" autocomplete="off" />
+            <input asp-for="DepartmentId" type="hidden" class="form-control" autocomplete="off" />
+            <input asp-for="EmployeeAddressId" type="hidden" class="form-control" autocomplete="off" />
+            <input asp-for="EmployeeDatasetId" type="hidden" class="form-control" autocomplete="off" />
+            <input asp-for="PositionId" type="hidden" class="form-control" autocomplete="off" />
+            <input asp-for="EducationId" type="hidden" class="form-control" autocomplete="off" />
+        </div>
+        <div class="mt-4">
+            <button type="submit" class="btn btn-success btn-lg">Save</button>
+            <a asp-action="Index" class="btn btn-danger btn-lg mx-2">Cancel</a>
+        </div>
+    </div>
+</form>
